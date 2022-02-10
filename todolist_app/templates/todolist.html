@@ -14,13 +14,12 @@
             </div>
         {% endfor%}
     {%endif%}
-    <form method="POST">
-        {%csrf_token %}
-        <div class="form-group">
-            <input type= "text" class="form-control" name="task" placeholder="new task">
-        </div>
 
-        <button type="submit" class="btn btn-primary">Add task</button>
+    <form method="POST" class="row">
+        {%csrf_token %}
+        <label class="colg-lg-4"></label>
+        <input type= "text" class="form-control col-lg-6" name="task" placeholder="new task">
+        <button type="submit" class="btn btn-primary col-lg-2">Add task</button>
     </form>
     </br>
         <table class="table table-bordered">
@@ -33,18 +32,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                {%if all_tasks%}
+                {%if all_tasks %}
                     {% for obj in all_tasks %}
                         {%if obj.done%}
                             <tr class="table-success">
-                                <td>{{obj.task}}</td>
+                                <td>{{obj.id }} | {{obj.task}}</td>
                                 <td>Completed</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
                             </tr>
                         {%else%}
                             <tr>
-                                <td>{{obj.task}}</td>
+                                <td>{{obj.id }} | {{obj.task}}</td>
                                 <td>not completed</td>
                                 <td>Edit</td>
                                 <td>Delete</td>
