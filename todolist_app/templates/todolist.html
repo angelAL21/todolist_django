@@ -7,6 +7,13 @@
 {% block content%}
     <div class="container">
     </br>
+    {%if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+            {{message}}
+            </div>
+        {% endfor%}
+    {%endif%}
     <form method="POST">
         {%csrf_token %}
         <div class="form-group">
@@ -26,23 +33,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for obj in all_tasks %}
-                    {%if obj.done%}
-                        <tr class="table-success">
-                            <td>{{obj.task}}</td>
-                            <td>Completed</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
-                        </tr>
-                    {%else%}
-                        <tr>
-                            <td>{{obj.task}}</td>
-                            <td>not completed</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
-                        </tr>
-                    {%endif%}
-                {%endfor%}
+                {%if all_tasks%}
+                    {% for obj in all_tasks %}
+                        {%if obj.done%}
+                            <tr class="table-success">
+                                <td>{{obj.task}}</td>
+                                <td>Completed</td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                        {%else%}
+                            <tr>
+                                <td>{{obj.task}}</td>
+                                <td>not completed</td>
+                                <td>Edit</td>
+                                <td>Delete</td>
+                            </tr>
+                        {%endif%}
+                    {%endfor%}
+                {%endif%}
                 </tbody>
         </table>
     </div>
