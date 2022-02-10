@@ -39,14 +39,14 @@
                                 <td>{{obj.id }} | {{obj.task}}</td>
                                 <td>Completed</td>
                                 <td>Edit</td>
-                                <td>Delete</td>
+                                <td><a href="{%url 'delete_task' obj.id %}">Delete</a></td>
                             </tr>
                         {%else%}
                             <tr>
                                 <td>{{obj.id }} | {{obj.task}}</td>
                                 <td>not completed</td>
                                 <td>Edit</td>
-                                <td>Delete</td>
+                                <td><a href="{%url 'delete_task' obj.id %}">Delete</a></td>
                             </tr>
                         {%endif%}
                     {%endfor%}
