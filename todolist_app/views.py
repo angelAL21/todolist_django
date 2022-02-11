@@ -48,3 +48,17 @@ def edit_task(request, task_id):
     else:
         task_obj = TaskList.objects.get(pk=task_id)
         return render(request, 'edit.html', {'task_obj': task_obj})
+    
+#complete task list
+def complete_task(request, task_id):
+    task = TaskList.objects.get(pk=task_id)
+    task.done = True
+    task.save()
+    return redirect('todolist')
+
+#pending task list
+def pending_task(request, task_id):
+    task = TaskList.objects.get(pk=task_id)
+    task.done = False
+    task.save()
+    return redirect('todolist')
