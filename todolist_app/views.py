@@ -35,3 +35,12 @@ def delete_task(request, task_id):
     task.delete()
     return redirect('todolist')
     
+#edit task
+def edit_task(request, task_id):
+    if request.method == "POST":
+        
+        messages.success(request,("task edited!"))
+        return redirect('todolist')
+    else:
+        task_obj = TaskList.objects.get(pk=task_id)
+        return render(request, 'edit.html', {'task_obj': task_obj})
