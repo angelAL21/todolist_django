@@ -34,6 +34,13 @@ def about(request):
         }
     return render(request, 'about.html', context)
 
+#home page.
+def index(request):
+    context = {
+        'index_text': "welcome to home page.",
+        }
+    return render(request, 'index.html', context)
+
 #delete a task
 def delete_task(request, task_id):
     task = TaskList.objects.get(pk=task_id)
