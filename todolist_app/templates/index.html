@@ -1,4 +1,5 @@
 {% extends 'base.html'%}
+{%load static%}
 
 {%block title %}
     <title>home page, welcome to taskmate.</title>
@@ -6,6 +7,18 @@
 
 {% block content%}
     <div class="container">
-        <h1>{{index_text}}</h1>
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <img src="{%static 'images/notes.jpg' %}" alt="Notes" width="300" height="250">
+            </div>
+
+            <div class="col-lg-4">
+                <img src="{%static 'images/notes.jpg' %}" alt="Notes" width="300" height="250">
+            </div>
+
+            <div class="col-lg-4">
+                <img src="{%static 'images/notes.jpg' %}" alt="Notes" width="300" height="250">
+            </div>
+        </div>
     </div>
 {% endblock content%}
